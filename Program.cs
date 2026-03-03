@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace FinalProject
 {
     public class Program
@@ -8,6 +10,14 @@ namespace FinalProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Get the connection string from appsettings.json
+            var connectionString = builder.Configuration.GetConnectionString("FinalProject") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+            // Configure the DbContext with the connection string
+            builder.Services.AddDbContext<DbContext>(options =>
+                options.UseSqlServer(connectionString));
+
 
             var app = builder.Build();
 

@@ -1,0 +1,24 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Headers;
+using FinalProject.Models;
+
+namespace FinalProject.Data
+{
+    public class WebDbContext : DbContext
+    {
+        public WebDbContext(DbContextOptions<WebDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<Customer> tb_customers { get; set; }
+        public DbSet<Shop> tb_Shop { get; set; }
+        public DbSet<Product> tb_Product { get; set; }
+        public DbSet<ProductCategory> tb_ProductCategory { get; set; }
+        public DbSet<Carts> tb_Carts { get; set; }
+        public DbSet<CartItems> tb_CartItems { get; set; }
+        public DbSet<Order> tb_Order { get; set; }
+        public DbSet<OrderDetails> tb_OrderDetails { get; set; }
+    }
+}

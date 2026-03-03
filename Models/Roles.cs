@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProject.Models
 {
+    [Table("Roles")]
     public class Roles
     {
         [Key] // Primary Key
@@ -11,7 +13,7 @@ namespace FinalProject.Models
         [StringLength(50)]
         public string RoleName { get; set; }
 
-
-
+        // Quan hệ với Customer
+        public ICollection<Customer> Customers { get; set; }
     }
 }
