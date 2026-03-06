@@ -52,5 +52,11 @@ namespace FinalProject.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public DateTime? UpdatedAt { get; set; }  // nullable
+
+        // ===== FOREIGN KEY =====
+        public int? RoleId { get; set; }
+
+        [ForeignKey("RoleId")]
+        public virtual Roles Role { get; set; }
     }
 }

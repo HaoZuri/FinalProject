@@ -13,7 +13,8 @@ namespace FinalProject.Models
         [StringLength(50)]
         public string RoleName { get; set; }
 
-        // Quan hệ với Customer
+        // Quan hệ với Customer, Shop
         public ICollection<Customer> Customers { get; set; }
+        public ICollection<Shop> Shops { get; set; }
     }
 }
