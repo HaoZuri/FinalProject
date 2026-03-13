@@ -27,8 +27,8 @@ namespace FinalProject.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            var user = _context.Users
-                .FirstOrDefault(u => u.Username == username && u.PasswordHash == password);
+            var user = _context.tb_Users
+                .FirstOrDefault(u => u.UserName == username && u.PasswordHash == password);
 
             if (user != null)
             {
@@ -49,8 +49,8 @@ namespace FinalProject.Controllers
         [HttpPost]
         public IActionResult Register(User user)
         {
-            var checkUser = _context.Users
-                .FirstOrDefault(u => u.Username == user.Username);
+            var checkUser = _context.tb_Users
+                .FirstOrDefault(u => u.UserName == user.UserName);
 
             if (checkUser != null)
             {
@@ -58,7 +58,7 @@ namespace FinalProject.Controllers
                 return View();
             }
 
-            _context.Users.Add(user);
+            _context.tb_Users.Add(user);
             _context.SaveChanges();
 
             return RedirectToAction("Login");
@@ -83,7 +83,7 @@ namespace FinalProject.Controllers
             var email = result.Principal.FindFirst(ClaimTypes.Email)?.Value;
             var name = result.Principal.FindFirst(ClaimTypes.Name)?.Value;
 
-            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+            var user = _context.tb_Users.FirstOrDefault(u => u.Email == email);
 
             // nếu chưa có user thì tạo mới
             if (user == null)
@@ -91,10 +91,10 @@ namespace FinalProject.Controllers
                 user = new User
                 {
                     Email = email,
-                    Name = name
+                    UserName = name
                 };
 
-                _context.Users.Add(user);
+                _context.tb_Users.Add(user);
                 await _context.SaveChangesAsync();
             }
 
