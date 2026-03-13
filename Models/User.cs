@@ -13,7 +13,7 @@ namespace FinalProject.Models
         [Required]
         [StringLength(50)]
         public string UserName { get; set; }
-
+        public string Username { get; internal set; }
         [Required]
         [StringLength(100)]
         [EmailAddress]
@@ -65,5 +65,6 @@ namespace FinalProject.Models
 
         [ForeignKey("RoleId")]
         public virtual Roles Role { get; set; }
+        public string? Name { get; internal set; }
     }
 }
