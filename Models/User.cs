@@ -18,7 +18,6 @@ namespace FinalProject.Models
         [EmailAddress]
         public string Email { get; set; } = null!;
 
-        [Required]
         [StringLength(255)]
         public string? PasswordHash { get; set; }
 

@@ -27,7 +27,7 @@ namespace FinalProject.Data
 
             modelBuilder.Entity<Roles>().HasData(
                 new Roles { RoleId = 1, RoleName = "Admin" },
-                new Roles { RoleId = 2, RoleName = "Customer" },
+                new Roles { RoleId = 2, RoleName = "User" },
                 new Roles { RoleId = 3, RoleName = "Shop" }
             );
         }
